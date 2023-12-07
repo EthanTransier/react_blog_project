@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import Main from './pages/index'
+import Posts from './pages/posts'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <Main/>,
   },
+  {
+    path: "/posts",
+    element: <Posts/>,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
