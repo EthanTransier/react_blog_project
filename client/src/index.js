@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import Main from './pages/index'
-import Posts from './pages/posts'
+import Create from './pages/create'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,8 +14,8 @@ const router = createBrowserRouter([
     element: <Main/>,
   },
   {
-    path: "/posts",
-    element: <Posts/>,
+    path: "create",
+    element: <Create/>,
   }
 ]);
 

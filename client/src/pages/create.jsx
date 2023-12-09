@@ -5,7 +5,7 @@ const Posts = () => {
   return (
     <>
       <Header/>
-      <div>Posts</div>
+      <div>Create</div>
     </>
     
   )
