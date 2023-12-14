@@ -19,8 +19,11 @@ app.use(express.urlencoded({ extended: false, limit: 100000, parameterLimit: 20}
 app.use(session({secret: process.env.SECRET_KEY, resave: false, saveUninitialized: true,}));
 
 app.route('/').get((req, res) =>{
-    res.send("Welcome");
+    res.send("server is running");
 });
+app.get('/auth', (req, res) =>{
+    res.send('is it working or is it not? Idk')
+})
 app.route('/docs').get((req, res) =>{
     // Import your mongoose model
 }).post((req, res) =>{
