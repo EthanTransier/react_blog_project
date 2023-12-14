@@ -1,17 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { useNavigate } from "react-router";
 export default function Navbar() {
-  const navigate = useNavigate();
-  const navEnum = {
-    "home": () => navigate("/home"),
-    "landing": () => navigate("/"),
-    "about": () => navigate("/about"),
-    "edit": () => navigate("/edit"),
-  };
-
-  function nav(route) {
-    navEnum[route]();
-  }
  return (
     <ul className="flex border-b">
       <li className="-mb-px mr-1">
