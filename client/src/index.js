@@ -1,26 +1,27 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom/client";
-import Main from './pages/index'
-import Create from './pages/create'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import "./index.css";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import About from './Components/About';
+import Edit from './Components/Edit';
+import Home from './Components/Home';
+import Navbar from './Components/Navbar';
+import "bootstrap/dist/css/bootstrap.css";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Main/>,
-  },
-  {
-    path: "create",
-    element: <Create/>,
-  }
-]);
-
-ReactDOM.createRoot(document.getElementById("root")).render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" exact Component={App} />
+          <Route path="/home" Component={Home} />
+          <Route path="/about" Component={About} />
+          <Route path="/edit" Component={Edit} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   </React.StrictMode>
 );
