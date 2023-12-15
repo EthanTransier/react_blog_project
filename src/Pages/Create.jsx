@@ -1,67 +1,77 @@
-import { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-export default function Edit(){
-    const [form, setForm] = useState({name: "", age: "", course: ""});
-    function updateForm(value) {
-        return setForm((prev) => {
-            return { ...prev, ...value };
-        });
-    }
-    async function fetchFunction(e){
-        e.preventDefault();
-        const update = {...form}
-        const getData = await fetch("http://localhost:7000/docs", {
-            method: "GET",
-            headers: { "Content-Type": "application/json" }
-        })
-        //const postData = await fetch("http://localhost:7000/docs", {
-        //    method: "POST",
-        //    headers: { "Content-Type": "application/json" },
-        //    body: JSON.stringify(update)
-        //})
-        //const putData = await fetch("http://localhost:7000/docs", {
-        //    method: "PUT",
-        //    headers: { "Content-Type": "application/json" },
-        //    body: JSON.stringify(update)
-        //})
-        updateForm({name: "",age: "",course: "",})
-    }
-    return(
-        <>
-        <div className="mx-auto w-25 h-50 d-flex flex-column border border-primary p-3">
-            <form onSubmit={fetchFunction} className="mt-2">
-                <input
-                    type="text"
-                    className="form-control"
-                    id="name"
-                    value={form.name}
-                    placeholder="Enter student name"
-                    maxLength="15"
-                    onChange={(e) => updateForm({ name: e.target.value })}
-                />
-                <br />
-                <input
-                    type="text"
-                    className="form-control"
-                    id="age"
-                    value={form.age}
-                    placeholder="Enter student age"
-                    onChange={(e) => updateForm({ age: e.target.value })}
-                />
-                <br />
-                <input
-                    type="text"
-                    className="form-control"
-                    id="course"
-                    value={form.course}
-                    placeholder="Enter student course"
-                    onChange={(e) => updateForm({ course: e.target.value })}
-                />
-                <div className="d-flex justify-content-center w-100 mt-2">
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
+import { useRef, useState } from 'react';
+import './ImageGenerator.css';
+import default_image from '../Assets/default_image.svg';
+
+const Create = () => {
+    const [image_url, setImage_url] = useState('/');
+    const [loading, setLoading] = useState(false);
+    let inputRef = useRef(null);
+
+    const ImageGenerator = async () => {
+      if (inputRef.current.value === '') {
+        return 0;
+      }
+      setLoading(true);
+      const response = await fetch(
+        'https://api.openai.com/v1/images/generations',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ',
+            'User-Agent': 'Chrome',
+          },
+
+          body: JSON.stringify({
+            prompt: `${inputRef.current.value}`,
+            n: 1,
+            size: '512x512',
+          }),
+        }
+      );
+      let data = await response.json();
+      console.log(data);
+      let data_array = data.data;
+      setImage_url(data_array[0].url);
+      setLoading(false);
+    };
+
+    return (
+      <div className='ai-image-generator'>
+        <div className='header' style={{ textAlign: 'center' }}>
+          Create a Post With Our
+          <br />
+          <span>AI image Generator</span>
         </div>
-        </>
+        <div className='img-loading'>
+          <div className='image'>
+            <img src={image_url === '/' ? default_image : image_url} alt='' />
+          </div>
+          <div className='loading'>
+            <div className={loading ? 'loading-bar-full' : 'loading-bar'}></div>
+            <div className={loading ? 'loading-text' : 'display-none'}>
+              Loading...
+            </div>
+          </div>
+        </div>
+        <div className='search-box'>
+          <input
+            type='text'
+            ref={inputRef}
+            className='search-input'
+            placeholder='Describe What You Want To SEE'
+          />
+          <div
+            className='generate-btn'
+            onClick={() => {
+              ImageGenerator();
+            }}
+          >
+            Generate
+          </div>
+        </div>
+      </div>
     );
-}
+};
+
+export default Create;

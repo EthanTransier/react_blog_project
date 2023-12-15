@@ -42,7 +42,7 @@ const ImageGenerator = () => {
     <div className='ai-image-generator'>
       <div className='header' style={{ textAlign: 'center' }}>
         Create a Post With Our
-        <br />
+        <br/>
         <span>AI image Generator</span>
       </div>
       <div className='img-loading'>
