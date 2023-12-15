@@ -1,18 +1,54 @@
 {
   "name": "react_blog_project",
   "version": "1.0.0",
+  "description": "This project is a Creative Blog Website that allows users to view other posts by others and generate their own post and AI imnages with our AI generator.",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
-    "start:frontend": "cd ./client && npm start",
-    "start:backend": "cd ./server && npm run start"
+    "start:frontend": "react-scripts start",
+    "start:server": "nodemon server/index.js",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:server\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "keywords": [],
+  "keywords": [
+    "Blog",
+    "Social Media",
+    "React"
+  ],
   "author": "Ethan Transier (https://github.com/EthanTransier)",
+  "contributors": [
+    {
+      "name": "Georgiana Barefield (https://github.com/gbaref949)"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "concurrently": "^8.2.2",
-    "create-mern-stack": "^1.0.21"
+    "nodemon": "^3.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0",
+    "react-router-dom": "^6.21.0",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^3.5.0"
   },
-  "description": ""
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
