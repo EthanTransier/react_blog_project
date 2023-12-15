@@ -1,3 +1,4 @@
+@import "./partials/aiImage";
 /* 
 ==================================================
 Base Styles
@@ -180,7 +181,7 @@ Hero
 .hero {
     height: 768px;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url("./images/logo1.png") no-repeat center;
+        url("../images/logo1.png") no-repeat center;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -274,8 +275,6 @@ Sidebar
     color: #fff;
     margin-top: -7px;
 }
-
-.profile-title {}
 
 /************
 POPULAR POSTS
@@ -371,7 +370,6 @@ SUBSCRIBE
     color: #fff;
     transition: all 0.35s;
     cursor: pointer;
-    -webkit-appearance: none;
 
     &:hover {
         opacity: 0.5;
@@ -384,7 +382,6 @@ SUBSCRIBE
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 0px;
-    -webkit-appearance: none;
 }
 
 /* 
