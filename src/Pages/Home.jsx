@@ -1,47 +1,12 @@
-import { useEffect } from 'react';
+import Image from '../images/00.png'
+import Image01 from '../images/01.png'
+import Image02 from '../images/02.png'
+import Image03 from '../images/03.png'
+import Image04 from '../images/04.png'
+import Logo from  '../images/logo.png'
+import Logo01 from '../images/logo1.png'
 
 const Home = () => {
-  useEffect(() => {
-    // Mobile menu functionality
-    const openBurger = document.querySelector('.open-burger');
-    const closeBurger = document.querySelector('.close-burger');
-    const myNav = document.getElementById('myNav');
-
-    openBurger.addEventListener('click', () => {
-      myNav.style.width = '100%';
-    });
-
-    closeBurger.addEventListener('click', () => {
-      myNav.style.width = '0%';
-    });
-
-    // Scroll to anchor id's
-    const links = document.querySelectorAll(
-      'a[href*="#"]:not([href="#"]):not([href="#0"])'
-    );
-
-    links.forEach((link) => {
-      link.addEventListener('click', function (event) {
-        if (
-          this.pathname === window.location.pathname &&
-          this.hostname === window.location.hostname
-        ) {
-          const target = document.querySelector(this.hash);
-          const targetElement = target
-            ? target
-            : document.querySelector(`[name=${this.hash.slice(1)}]`);
-
-          if (targetElement) {
-            event.preventDefault();
-            window.scrollTo({
-              top: targetElement.offsetTop,
-              behavior: 'smooth',
-            });
-          }
-        }
-      });
-    });
-  }, []);
 
   return (
     <>
@@ -51,7 +16,7 @@ const Home = () => {
             <a href='/create'>CREATE</a>
             <a href='/profile'>MY PROFILE</a>
             <a>
-              <img src='./images/logo.png' alt='logo' className='logo' />
+              <img src='' alt='logo' className='logo' />
             </a>
           </div>
         </nav>
@@ -93,7 +58,7 @@ const Home = () => {
                 </h2>
                 <p>Best Content Platform<span className="date">&nbsp;December 14, 2023</span></p>
               </header>
-              <img src="./images/00.png" style="width:100%"/>
+              <img src="./images/00.png" style={{width: '100%'}}/>
               <p><strong>In this post</strong> you'll find all the coolest, hippest and most skilled tattoo shops
                 across the World.Sed mattis nunc id lorem euismod placerat...</p>
               <div className="post-btm-bar">
@@ -111,7 +76,7 @@ const Home = () => {
                 </h2>
                 <p>Stigmas attached to tattoos<span className="date">&nbsp;March 30, 2018</span></p>
               </header>
-              <img src="./images/01.png" style="width:100%"/>
+              <img src="./images/01.png" style={{width: '100%'}}/>
               <p><strong>In this post</strong> you'll find all the coolest, hippest and most skilled tattoo shops
                 across the World.Sed mattis nunc id lorem euismod placerat...</p>
               <div className="post-btm-bar">
@@ -129,7 +94,7 @@ const Home = () => {
                 </h2>
                 <p>Are below the cuff tattoos good<span className="date">&nbsp;March 28, 2018</span></p>
               </header>
-              <img src="./images/02.png" style="width:100%"/>
+              <img src="./images/02.png" style={{width: '100%'}}/>
               <p><strong>In this post</strong> you'll find all the coolest, hippest and most skilled tattoo shops
                 across the World. Sed mattis nunc id lorem euismod placerat...</p>
               <div className="post-btm-bar">
@@ -146,7 +111,7 @@ const Home = () => {
           <section className="profile">
             <div className="myrow author">
               <div className="mycol author">
-                <img src="./images/03.png" style="width:100%"/>
+                <img src="./images/03.png" style={{width: '100%'}}/>
                 <div className="abt">
                   <h3 className="profile-title">Megan Moore</h3>
                   <p>Megan is a lifestyle blogger who loves to write about her passions of tattoos. </p>
@@ -285,7 +250,7 @@ const Home = () => {
       </div>
 
         <footer>
-          <div className='myrow'>
+          {/* <div className='myrow'>
             <div className='mycol'>
               <a href='#'>
                 <i className='fab fa-facebook-f'>{FaFacebook}</i>
@@ -300,7 +265,7 @@ const Home = () => {
                 <i className='fab fa-github'>{FaGithub}</i>
               </a>
             </div>
-          </div>
+          </div> */}
           <div className='myrow'>
             <div className='mycol'>
               <p>Copyright © 2023 | All Rights Reserved</p>

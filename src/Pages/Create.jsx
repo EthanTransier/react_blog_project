@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
-import './ImageGenerator.css';
-import default_image from '../Assets/default_image.svg';
+import '../css/styles.css';
+import default_image from './Assets/default_image.svg';
 
 const Create = () => {
     const [image_url, setImage_url] = useState('/');
@@ -18,7 +18,7 @@ const Create = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: 'Bearer ',
+            Authorization: 'Bearer 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',
             'User-Agent': 'Chrome',
           },
 
