@@ -19,7 +19,8 @@ const Create = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: 'Bearer ',
+            Authorization:
+              'Bearer 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',
             'User-Agent': 'Chrome',
           },
 
