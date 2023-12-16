@@ -23,7 +23,7 @@ app.use('/users', userRoute);
 const initServer = async () => {
   //first thing we want it to do is connect to the server
   try {
-    await connectDB('');
+    await connectDB('mongodb+srv://dummy:RluJNoNqZgMuZufj@users.grndgyl.mongodb.net/blogs');
     app.listen(port, () => {
       //server listen
       console.log('Server is listening on Port 5000');
