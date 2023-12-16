@@ -8,8 +8,8 @@ import Home from './Pages/Home';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home /> },
-  // { path: '/create', element: <Create/> },
-  // { path: '/profile', element: <Profile /> },
+  { path: '/create', element: <Create/> },
+  { path: '/profile', element: <Profile /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

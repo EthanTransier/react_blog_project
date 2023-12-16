@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import '../css/styles.css';
 import default_image from './Assets/default_image.svg';
+import Logo from '../images/logo.png';
 
 const Create = () => {
     const [image_url, setImage_url] = useState('/');
@@ -18,7 +19,7 @@ const Create = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: 'Bearer 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',
+            Authorization: 'Bearer ',
             'User-Agent': 'Chrome',
           },
 
@@ -38,10 +39,19 @@ const Create = () => {
 
     return (
       <div className='ai-image-generator'>
+        <nav className='standard-nav'>
+          <div className='links'>
+            <a href='./'>HOME</a>
+            <a href='/create'>CREATE</a>
+            <a href='/profile'>MY PROFILE</a>
+            <a>
+              <img src={Logo} alt='logo' className='logo' />
+            </a>
+          </div>
+        </nav>
+
         <div className='header' style={{ textAlign: 'center' }}>
-          Create a Post With Our
-          <br />
-          <span>AI image Generator</span>
+          AI <span>Image</span> Generator
         </div>
         <div className='img-loading'>
           <div className='image'>
