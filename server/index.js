@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false, limit: 100000, parameterLimit: 20}
 app.route('/').get((req, res) =>{
     res.send("server is running");
 });
-app.get("/login", login);
+app.post("/login", login);
 app.route('/docs').get((req, res) =>{
     // Import your mongoose model
 }).post((req, res) =>{
