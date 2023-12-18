@@ -4,7 +4,7 @@ import default_image from './Assets/default_image.svg';
 import Logo from '../images/logo.png';
 
 const ImageGenerator = () => {
-  const [image_url, setImage_url] = useState('/');
+  const [image_url, setImage_url] = useState('/home');
     const [loading, setLoading] = useState(false);
     let inputRef = useRef(null);
 
@@ -57,7 +57,7 @@ const ImageGenerator = () => {
         </header>
         <div className='img-loading'>
           <div className='image'>
-            <img src={image_url === '/' ? default_image : image_url} alt='' />
+            <img src={image_url === '/home' ? default_image : image_url} alt='' />
           </div>
           <div className='loading'>
             <div className={loading ? 'loading-bar-full' : 'loading-bar'}></div>

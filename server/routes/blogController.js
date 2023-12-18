@@ -7,8 +7,8 @@ const {
   deleteUsers,
 } = require('../controllers/users');
 
-router.get('/', getUsers);
-router.post('/', createUsers);
+router.get('/home', getUsers);
+router.post('/home', createUsers);
 router.delete('/:id', deleteUsers);
 
 module.exports = router;

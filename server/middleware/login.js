@@ -2,7 +2,7 @@ const passport = require('passport');
 
 function login(req, res) {
   passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/home',
     failureRedirect: '/login'
   })(req, res);
 }

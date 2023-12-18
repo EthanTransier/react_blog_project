@@ -7,9 +7,11 @@ import Create from './Pages/Create';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
+import Landing from './Pages/Landing';
 
 const router = createBrowserRouter([
-  { path: '/', element: <Home /> },
+  { path: '/', element: <Landing/> },
+  { path: '/home', element: <Home /> },
   { path: '/create', element: <Create/> },
   { path: '/signup', element: <Signup/> },
   { path: '/login', element: <Login/> },

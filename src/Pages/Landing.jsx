@@ -3,21 +3,12 @@ import Image01 from '../images/01.png'
 import Image02 from '../images/02.png'
 import Image03 from '../images/03.png'
 import Image04 from '../images/04.png'
-import Logo from  '../images/logo.png'
 import Logo01 from '../images/logo1.png'
 
 const Home = () => {
 
   return (
     <>
-      <nav className='standard-nav'>
-        <div className='links'>
-          <a href='./'>HOME</a>
-          <a href='/create'>CREATE</a>
-          <a href='/profile'>MY PROFILE</a>
-        </div>
-        <img src={Logo} alt='logo' className='logo' />
-      </nav>
       <section id='home'>
         <div className='myrow'>
           <div className='mycol'>
@@ -286,6 +277,22 @@ const Home = () => {
       </div>
 
       <footer>
+        {/* <div className='myrow'>
+            <div className='mycol'>
+              <a href='#'>
+                <i className='fab fa-facebook-f'>{FaFacebook}</i>
+              </a>
+              <a href='#'>
+                <i className='fab fa-twitter'>{FaTwitter}</i>
+              </a>
+              <a href='#'>
+                <i className='fab fa-linkedin-in'>{FaLinkedin}</i>
+              </a>
+              <a href='#'>
+                <i className='fab fa-github'>{FaGithub}</i>
+              </a>
+            </div>
+          </div> */}
         <div className='myrow'>
           <div className='mycol'>
             <p>Copyright © 2023 | All Rights Reserved</p>
