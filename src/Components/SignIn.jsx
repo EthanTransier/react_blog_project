@@ -25,7 +25,7 @@ export default function SignIn() {
 
         if (pass.success) {
             updateForm({ email: "", password: "" });
-            navigate("/home");
+            navigate("/profile");
         } else {
             alert("Error");
         }
