@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
-
 const Login = () => {
-  const [form, setForm] = useState({ email: '', password: '' });
+    const [form, setForm] = useState({ email: '', password: '' });
 
     function updateForm(value) {
         return setForm((prev) => {
@@ -15,7 +14,7 @@ const Login = () => {
 
     async function fetchFunction(e) {
         e.preventDefault();
-        const getData = await fetch("http://localhost:5000/login", {
+        const getData = await fetch("http://localhost:3000/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             credentials: 'include',
@@ -30,7 +29,7 @@ const Login = () => {
             
             updateForm({ email: "", password: "" });
             
-            navigate("/profile");
+            navigate("/home");
         } else {
             console.log('failed to login')
             alert("Error");
@@ -63,5 +62,4 @@ const Login = () => {
         </form>
     );
 }
-
 export default Login

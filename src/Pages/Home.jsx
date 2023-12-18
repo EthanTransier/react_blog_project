@@ -12,7 +12,7 @@ const Home = () => {
     <>
       <nav className='standard-nav'>
         <div className='links'>
-          <a href='./'>HOME</a>
+          <a href='./home'>HOME</a>
           <a href='/create'>CREATE</a>
           <a href='/profile'>MY PROFILE</a>
         </div>

@@ -57,12 +57,12 @@ const Profile = () => {
     <>
       <div className='container'>
         <nav className='standard-nav'>
-          <div className='links'>
-            <a href='./'>HOME</a>
-            <a href='/create'>CREATE</a>
-            <a href='/profile'>MY PROFILE</a>
-          </div>
-          <img src={Logo} alt='logo' className='logo' />
+        <div className='links'>
+          <a href='./home'>HOME</a>
+          <a href='/create'>CREATE</a>
+          <a href='/profile'>MY PROFILE</a>
+        </div>
+        <img src={Logo} alt='logo' className='logo' />
         </nav>
         <div className='wrapper'>
           <div className='profile-card js-profile-card'>
