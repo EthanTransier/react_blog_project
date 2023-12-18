@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import Logo from '../images/logo.png';
 import default_image from './Assets/default_image.svg';
 
@@ -7,6 +8,16 @@ const Profile = () => {
   const [bio, setBio] = useState('Click here to set bio');
   const [isEditingName, setIsEditingName] = useState(false);
   const [isEditingBio, setIsEditingBio] = useState(false);
+
+  const navigate = useNavigate();
+  
+  console.log(sessionStorage.getItem('authenticated'))
+  if(sessionStorage.getItem('authenticated')){
+    console.log(sessionStorage.getItem('user'))
+  }else{
+    console.log('not authenticated')
+    window.location.href = '/'
+  }
 
   useEffect(() => {
     // Similar to componentDidMount and componentDidUpdate
@@ -41,7 +52,7 @@ const Profile = () => {
       });
     };
   }, []);
-
+  
   return (
     <>
       <div className='container'>

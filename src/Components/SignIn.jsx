@@ -24,7 +24,11 @@ export default function SignIn() {
         const pass = await getData.json();
 
         if (pass.success) {
+            sessionStorage.setItem('user', JSON.stringify({ ...form }))
+            sessionStorage.setItem('authenticated', true)
+            
             updateForm({ email: "", password: "" });
+            
             navigate("/profile");
         } else {
             console.log('failed to login')
