@@ -27,6 +27,7 @@ export default function SignIn() {
             updateForm({ email: "", password: "" });
             navigate("/profile");
         } else {
+            console.log('failed to login')
             alert("Error");
         }
     }

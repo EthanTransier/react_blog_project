@@ -25,21 +25,21 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false, limit: 100000, parameterLimit: 20}))
 
 app.route('/').get((req, res) =>{
-    res.send("server is running");
+    res.status(200).json({success: true});
 });
 app.post("/login", login);
 app.use('/users', users)
-app.route('/docs').get((req, res) =>{
-    // Import your mongoose model
-}).post((req, res) =>{
-    // Used for creating docs
-    // const {id} = req.body;
-    // var doc = new Model({id: id});
-    // doc.save();
-}).put((req, res) =>{
-    // Used for updating docs
-    // const {id, name} = req.body;
-    // var doc = Model.findOneAndUpdate({id: id}, {$set: {name: name}}, {new: true});
-});
+// app.route('/').get((req, res) =>{
+//     // Import your mongoose model
+// }).post((req, res) =>{
+//     // Used for creating docs
+//     // const {id} = req.body;
+//     // var doc = new Model({id: id});
+//     // doc.save();
+// }).put((req, res) =>{
+//     // Used for updating docs
+//     // const {id, name} = req.body;
+//     // var doc = Model.findOneAndUpdate({id: id}, {$set: {name: name}}, {new: true});
+// });
 
 app.listen(5000);
