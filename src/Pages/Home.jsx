@@ -5,13 +5,11 @@ import Image03 from '../images/03.png'
 import Image04 from '../images/04.png'
 import Logo from  '../images/logo.png'
 import Logo01 from '../images/logo1.png'
-import SignIn from '../Components/SignIn'
 
 const Home = () => {
 
   return (
     <>
-    <SignIn/>
       <nav className='standard-nav'>
         <div className='links'>
           <a href='./'>HOME</a>
@@ -28,7 +26,7 @@ const Home = () => {
               <h1 className='lead'>AFE THE BLOG SITE TO ACCLERATE YOU</h1>
               <p>
                 See and read about the art of{' '}
-                <span className='accent'>Technogoly</span>
+                <span className='accent'>Technology</span>
               </p>
             </header>
           </div>
@@ -39,8 +37,11 @@ const Home = () => {
               <header>
                 <p>AFE</p>
                 <h1>Made to inspire</h1>
-                <a href='#' className='mybtn'>
-                  Subscribe
+                <a href='/login' className='mybtn'>
+                  Login
+                </a>
+                <a href='/signup' className='mybtn'>
+                  Signup
                 </a>
               </header>
             </div>
