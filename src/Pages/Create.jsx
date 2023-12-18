@@ -50,10 +50,11 @@ const Create = () => {
             </a>
           </div>
         </nav>
-
-        <div className='header' style={{ textAlign: 'center' }}>
-          AI <span>Image</span> Generator
-        </div>
+        <header className='top-intro'>
+          <h1 className='lead'>
+            AI <span style={{ color: '#e91e63',}}>Image</span> Generator
+          </h1>
+        </header>
         <div className='img-loading'>
           <div className='image'>
             <img src={image_url === '/' ? default_image : image_url} alt='' />
