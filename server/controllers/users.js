@@ -13,6 +13,17 @@ const getUsers = async (req, res) => {
   }
 };
 
+const getUser = async (req, res) => {
+  try{
+    const {email} = req.params
+    const user = await User.findById({email: email})
+    console.log(user)
+    res.json(user)
+  }catch (error){
+    res.status(500).json({error: error.message})
+  }
+}
+
 const createUsers = async (req, res) => {
   const {user_name, email, password, password2} = req.body;
     let errors = [];
@@ -99,4 +110,5 @@ module.exports = {
   getUsers,
   createUsers,
   deleteUsers,
+  getUser
 };
