@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Logo from '../images/logo.png';
-import default_image from './Assets/default_image.svg';
+import default_image from '../Components/Assets/default_image.svg';
 
 const Profile = () => {
   const [name, setName] = useState('Click Here to set name');

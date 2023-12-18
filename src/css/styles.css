@@ -450,6 +450,10 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Merriweather Sans', sans-serif;
 ================================================== 
 */
+::-webkit-scrollbar {
+  display: none;
+}
+
 *,
 *:before,
 *:after {
@@ -497,6 +501,8 @@ a {
 
 .mybtn {
   background: transparent;
+  margin-left: 1rem;
+  margin-right: 1rem;
   border: 2px solid #fff;
   color: #fff;
   display: inline-block;
@@ -530,7 +536,8 @@ STANDARD MENU
 ********** */
 .standard-nav {
   position: fixed;
-  width: 100%;
+  margin-left: -1rem;
+  width: 105%;
   top: 0;
   z-index: 9999;
   display: flex;
@@ -539,6 +546,7 @@ STANDARD MENU
   padding: 2px;
 }
 .standard-nav .links {
+  margin-left: 1rem;
   padding: 12px 2px;
 }
 .standard-nav .links a {
@@ -555,7 +563,7 @@ STANDARD MENU
   border-radius: 50%;
   position: absolute;
   top: -1rem;
-  right: 2%; /* Adjust this value based on your needs */
+  right: 6%; /* Adjust this value based on your needs */
   height: 80px;
   padding: 12px 2px;
   display: flex;

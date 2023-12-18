@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
-export default function SignIn() {
-    const [form, setForm] = useState({ email: '', password: '' });
+
+const Login = () => {
+  const [form, setForm] = useState({ email: '', password: '' });
 
     function updateForm(value) {
         return setForm((prev) => {
@@ -57,3 +58,5 @@ export default function SignIn() {
         </form>
     );
 }
+
+export default Login
