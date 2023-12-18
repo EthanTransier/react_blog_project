@@ -9,6 +9,7 @@ const login = require('./middleware/login.js');
 const passportSetup = require('./config/passportSetup.js');
 const isAuthenticated = require('./middleware/auth.js');
 const path = require('path');
+const users = require('./routes/userController.js')
 dotenv.config();
 mongoose.connect('mongodb+srv://dummy:RluJNoNqZgMuZufj@users.grndgyl.mongodb.net/users');
 passportSetup(passport)
@@ -26,7 +27,8 @@ app.use(express.urlencoded({ extended: false, limit: 100000, parameterLimit: 20}
 app.route('/').get((req, res) =>{
     res.send("server is running");
 });
-app.get("/login", login);
+app.post("/login", login);
+app.use('/users', users)
 app.route('/docs').get((req, res) =>{
     // Import your mongoose model
 }).post((req, res) =>{
