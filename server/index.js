@@ -1,36 +1,43 @@
-// const {MongoClient} = require("mongodb");
-const express = require("express");
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const express = require('express');
+const dotenv = require('dotenv');
+const session = require('express-session');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const login = require('./middleware/login.js');
+const passportSetup = require('./config/passportSetup.js');
+const isAuthenticated = require('./middleware/auth.js');
+const path = require('path');
+dotenv.config();
+mongoose.connect('mongodb+srv://dummy:RluJNoNqZgMuZufj@users.grndgyl.mongodb.net/users');
+passportSetup(passport)
+
 const app = express();
-const cors = require("cors");
-const morgan = require("morgan");
-require("dotenv").config();
-const userRoute = require("./routes/userController");
-const connectDB = require("./db/connect");
-const port = 5000
+app.use(session({secret: "murphy is the most amazing person ever", resave: false, saveUninitialized: true,}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false, limit: 100000, parameterLimit: 20}))
 
-app.use(morgan('tiny'))
-app.use(express.json())
-app.use(cors())
+app.route('/').get((req, res) =>{
+    res.send("server is running");
+});
+app.get("/login", login);
+app.route('/docs').get((req, res) =>{
+    // Import your mongoose model
+}).post((req, res) =>{
+    // Used for creating docs
+    // const {id} = req.body;
+    // var doc = new Model({id: id});
+    // doc.save();
+}).put((req, res) =>{
+    // Used for updating docs
+    // const {id, name} = req.body;
+    // var doc = Model.findOneAndUpdate({id: id}, {$set: {name: name}}, {new: true});
+});
 
-app.use(express.urlencoded({ extended:false }));
-
-app.get('/', (req,res)=>{
-    res.send('Server is working')
-})
-
-app.use('/users', userRoute);
-
-const initServer = async () => {
-  //first thing we want it to do is connect to the server
-  try {
-    await connectDB('mongodb+srv://dummy:RluJNoNqZgMuZufj@users.grndgyl.mongodb.net/blogs');
-    app.listen(port, () => {
-      //server listen
-      console.log('Server is listening on Port 5000');
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-initServer();
+app.listen(5000);

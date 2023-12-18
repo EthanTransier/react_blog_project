@@ -5,11 +5,13 @@ import Image03 from '../images/03.png'
 import Image04 from '../images/04.png'
 import Logo from  '../images/logo.png'
 import Logo01 from '../images/logo1.png'
+import SignIn from '../Components/SignIn'
 
 const Home = () => {
 
   return (
     <>
+    <SignIn/>
       <nav className='standard-nav'>
         <div className='links'>
           <a href='./'>HOME</a>
