@@ -35,7 +35,7 @@ const Login = () => {
 
           updateForm({ email: '', password: '' });
 
-          navigate('/home');
+          navigate('/');
         } else {
           console.log('failed to login');
           alert('Error');
