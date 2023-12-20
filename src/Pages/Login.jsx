@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const getData = await fetch('http://localhost:3000/login', {
+      const getData = await fetch('http://localhost:5000/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -34,10 +34,10 @@ const Login = () => {
 
         updateForm({ email: '', password: '' });
 
-        navigate('/');
+        navigate('/home');
       } else {
         console.log('failed to login');
-        alert('Error');
+        alert('Uh Oh! Something went wrong');
       }
     } catch (error) {
       console.error('Error:', error);
