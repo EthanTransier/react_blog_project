@@ -50,38 +50,37 @@ const createUsers = async (req, res) => {
         })
     } else {
         User.findOne({email: email}).then((err, user)=>{
-            if(user){
-                errors.push({msg: "This email has aleady been registered"})
-                res.render('register', {
-                    errors: errors,
-                    user_name: user_name,
-                    email: email,
-                    password: password
-                })
-            } else {
-                const newUser = new User({
-                    user_name: user_name,
-                    email: email,
-                    password: password
-                })
+          if(user){
+            errors.push({msg: "This email has aleady been registered"})
+            res.render('register', {
+              errors: errors,
+              user_name: user_name,
+              email: email,
+              password: password
+            })
+          } else {
+              const newUser = new User({
+                  user_name: user_name,
+                  email: email,
+                  password: password
+              })
 
-                bcrypt.genSalt(10, (err, salt)=>
+              bcrypt.genSalt(10, (err, salt)=>
                 bcrypt.hash(newUser.password,salt,
-                    ((err,hash)=> {
-                        if(err) throw err;
-                        console.log(newUser)
-                        // save pass to hash
-                        newUser.password = hash
-                        console.log(newUser)
-                        newUser.save()
-                        .then((value)=>{
-                            req.flash('success_msg', 'You have onw registered!')
-                            res.redirect('/users/login')
-                        })
-                        .catch(value=> console.log(value))
+                  ((err,hash)=> {
+                    if(err) throw err;
+                      console.log(newUser)
+                      // save pass to hash
+                      newUser.password = hash
+                      console.log(newUser)
+                      newUser.save()
+                    .then((value)=>{
+                      res.redirect('/')
                     })
-                    )
-                )
+                    .catch(value=> console.log(value))
+                  })
+                  )
+              )
             }
         })
     }

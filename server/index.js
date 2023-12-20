@@ -28,7 +28,7 @@ app.route('/').get((req, res) =>{
     res.status(200).json({success: true});
 });
 app.post("/login", login);
-app.use('/users', users)
+app.use('/users', require('./routes/userController.js'))
 // app.route('/').get((req, res) =>{
 //     // Import your mongoose model
 // }).post((req, res) =>{
