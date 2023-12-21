@@ -7,7 +7,7 @@ const {
 } = require('../controllers/blogs');
 
 // router.get('/', getUsers);
-router.get('/')
+router.get('/', getblogs)
 router.post('/', createblog);
 
 

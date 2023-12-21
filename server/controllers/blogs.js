@@ -11,28 +11,24 @@ const getblogs = async (req, res) => {
 };
 
 const createblog = async(req, res)=>{
-    const {title, author, description} = req.body;
+    const {name, author, description} = req.body;
     let errors = []
     let id = await Blog.find({})
     // console.log(await Blog.find({}).length >= 0)
     console.log(id.length+1)
-    console.log(title, author, description)
-    if(!title || !author || !description){
+    console.log(name, author, description)
+    if(!name || !author || !description){
         errors.push({msg: "Please fill in all fields"})
     }
 
-    if(errors.length > 0){
-        console.log('errors ' + errors)
-        res.status(500).json({ error: error.message });
-    } else {
-        const newBlog = new Blog({
-            title: title,
+    
+        const newBlog = await Blog.create({
+            name: name,
             author: author,
             description: description,
             id: id.length+1
         })
-        newBlog.save()
-    }
+        // newBlog.save()
     res.redirect('/')
 
 }
